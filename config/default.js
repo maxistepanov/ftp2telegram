@@ -2,17 +2,17 @@ module.exports = {
     ftp: {
         url: 'ftp://0.0.0.0:21',
         pasv: {
-            ip: '192.168.1.2',
-            portMin: 21000,
-            portMax: 21010,
+            ip: '0.0.0.0',
+            portMin: process.env.FTP_PASSIVE_PORT_MIN,
+            portMax: process.env.FTP_PASSIVE_PORT_MAX,
         },
         credentials: {
-            'username': 'password'
+            [process.env.FTP_USERNAME]: process.env.FTP_PASSWORD
         }
     },
 
     telegram: {
-        token: 'xxxxxxxxxxxxxxxxxxxxxxxxx',
-        chatIds: [-1337]
+        token: process.env.TELEGRAM_TOKEN,
+        chatIds: [process.env.TELEGRAM_CHAT_IDS]
     }
 };

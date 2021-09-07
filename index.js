@@ -40,4 +40,5 @@ ftpServer.on('login', ({connection, username, password}, resolve, reject) => {
 
 ftpServer
     .listen()
-    .then(_ => console.log('Server is running'));
+    .then(_ => console.log('Server is running'))
+    .catch(e => console.log('Error -> ', e))
