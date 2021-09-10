@@ -1,8 +1,8 @@
 const config = require('./config/default');
 const TelegramProxy = require('./lib/TelegramProxy');
 const MemoryFileSystem = require('./lib/MemoryFileSystem');
-
 const FtpSrv = require('ftp-srv');
+const FileType = require("file-type");
 
 const telegramProxy = new TelegramProxy(config.telegram);
 
@@ -23,8 +23,9 @@ ftpServer.on('login', ({connection, username, password}, resolve, reject) => {
     }
 
     const memoryFileSystem = new MemoryFileSystem();
+    const STOR_COMMAND = 'STOR';
 
-    connection.on('STOR', (error, filename) => {
+    connection.on(STOR_COMMAND, (error, filename) => {
         const stream = memoryFileSystem.getUploaded(filename);
 
         if (stream) {

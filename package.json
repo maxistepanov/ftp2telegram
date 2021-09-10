@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "file-type": "^16.5.3",
     "ftp-srv": "^4.4.0",
     "memory-stream": "^1.0.0",
     "mime": "^2.4.7",
